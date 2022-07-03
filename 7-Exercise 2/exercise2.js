@@ -15,14 +15,38 @@ const comments = [
   { text: "Nice Nice Nice!", id: 542328 },
 ];
 
+const actualYear = new Date().getFullYear();
+
 // Some and Every Checks
 // Array.prototype.some() // is at least one person 19 or older?
+
+let someAdult = people.some((person) => actualYear - person.year >= 19);
+
+// console.log(someAdult);
+
 // Array.prototype.every() // is everyone 19 or older?
+
+let fullAdult = people.every((person) => actualYear - person.year >= 19);
+
+// console.log(fullAdult);
 
 // Array.prototype.find()
 // Find is like filter, but instead returns just the one you are looking for
 // find the comment with the ID of 823423
 
+let searchID = comments.find((search) => search.id === 823423);
+
+// console.log(searchID);
+
 // Array.prototype.findIndex()
 // Find the comment with this ID
 // delete the comment with the ID of 823423
+
+let searchIndex = comments.findIndex((search) => search.id === 823423);
+
+const newComments = [
+  ...comments.slice(0, searchIndex),
+  ...comments.slice(searchIndex + 1),
+];
+
+// console.table(newComments);
