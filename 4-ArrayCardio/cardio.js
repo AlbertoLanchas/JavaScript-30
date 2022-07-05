@@ -134,3 +134,13 @@ const data = [
 
 let dataUnique = new Set(data);
 console.log([...dataUnique]);
+
+const transportation = data.reduce(function (obj, item) {
+  if (!obj[item]) {
+    obj[item] = 0;
+  }
+  obj[item]++;
+  return obj;
+}, {});
+
+console.log(transportation);
